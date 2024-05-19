@@ -1,0 +1,67 @@
+{% extends 'global/layout.html' %}
+
+{% load static %}
+
+{% block content %}
+
+{% load custom_tags %}
+{% if user.is_authenticated %}
+
+{% if request.user|has_group:"admin" %}
+
+<div class="container justify-content-center mt-3 ">
+  <div class="row">
+      <div class="col-md-15">
+          <div class="card">
+              <div class="col-sm-12" style="background-color: rgb(78, 170, 167); border: 1px solid #333">
+                  <h4 class="card-title text-center mt-0" style="color:white;"> Reset de la Campaña </h4>
+              </div>
+              <form id="formulario_datos" method="post" action="{% url 'reset_campania' %}" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  <div class="card-body" style="background-color: rgb(78, 170, 167);margin-top:1%; border: 1px solid #333;">
+                      <div class="form-group row ">
+                          <div class="row align-items-start">
+                              <div class="col-sm-3">
+                                  <label  class="form-label fw-bold" style="color:white;" >Nombre Campania</label>
+                                  <input name="nombre_campania" id="nombre_campania" class="form-control" type="text" required>
+                              </div>
+                              <div class="col-sm-2">
+                                  <label  class="form-label fw-bold" style="color:white;" >Fecha Inicio..</label>
+                                  <input name="fecha_inicio" id="fecha_inicio" class="form-control" type="date" required>
+                              </div>
+                              <div class="col-sm-2">
+                                  <label  class="form-label fw-bold" style="color:white;" >Hora Inicio..</label>
+                                  <input name="hora_inicio" id="hora_inicio" class="form-control" type="time" required>
+                              </div>
+                              <div class="col-sm-2">
+                                  <label  class="form-label fw-bold" style="color:white;" >Fecha Termino..</label>
+                                  <input name="fecha_termino" id="fecha_termino" class="form-control" type="date" required>
+                              </div>
+                              <div class="col-sm-2">
+                                  <label  class="form-label fw-bold" style="color:white;" >Hora Termino..</label>
+                                  <input name="hora_termino" id="hora_termino" class="form-control" type="time" required>
+                              </div>
+                              <div class="col-sm-15 text-end">
+                                  <button type="submit" id="submit_button" class="btn btn-primary">Guardar</button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  {% if messages %}
+                        {% for message in messages %}
+                            <div style="position: fixed;top: 50px; right: 100px; width: 300px; z-index: 9999;" class="alert {% if message.tags == 'error' %}alert-danger{% else %}alert-success{% endif %} alert-dismissible fade show" role="alert">
+                                {{ message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
+
+{% endif %}
+{% endif %}}
+
+{% endblock %}

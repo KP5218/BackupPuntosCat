@@ -1,0 +1,69 @@
+{% extends 'global/layout.html' %}
+
+{% load static %}
+
+{% block content %}
+{% load custom_tags %}
+{% if user.is_authenticated %}
+
+{% if request.user|has_group:"admin" %}
+
+
+<div style="width:20%; float:right">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert {% if message.tags == 'error' %}alert-danger{% else %}alert-success{% endif %} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+<div class="container mt-4">
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card ">
+                <div class="card-body p-4" style="border: 2px solid black;background-color: rgb(78, 170, 167);">
+                    <h4 class="card-title text-center mb-4 "  style="color:white"  >Añadir ejecutivo</h4>
+
+                    <form method="post" action="{% url 'guardar_participante' %}">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="rut" class="form-label"  style="color:white;font-size: 1.2em;">Rut ejecutivo:</label>
+                            <input type="text" class="form-control" id="rut" name="rut" maxlength="10"  onkeypress="return isNumber(event)" oninput="checkRut(this)" required>
+                            <div >
+                                <span id="alerta">
+                                    <span id="mensaje" style="color: red;"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="usuario" class="form-label"  style="font-size: 1.2em;color:white">Usuario:</label>
+                            <input type="text" class="form-control" id="usuario" name="usuario" maxlength="100" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="n_personal" class="form-label"  style="font-size: 1.2em;color:white">N° de personal:</label>
+                            <input type="text" class="form-control" id="n_personal" name="n_personal" maxlength="100" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label"  style="font-size: 1.2em;color:white">Nombre ejecutivo:</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" maxlength="150" required>
+                        </div>
+
+                        <div class="text-center">
+                            <button id="enviar" type="submit" class="btn btn-lg btn-primary mt-3">Añadir</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="{% static 'js/formulario/validar_rut.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/crear_participante/buscar_participante.js' %}"></script>
+{% endif %}
+{% endif %}
+{% endblock %}
+

@@ -1,0 +1,62 @@
+{% extends "global/layout.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container justify-content-center mt-1">
+       <div class="row">
+           <div class="col-md-15">
+               <div class="card">
+                   <div class="container justify-content-center">
+                      <h2>Bienvenido</h2>
+                   </div>
+                   <section class="vh-800 mb-5" id="loginForm">
+                       <div class="container-fluid h-custom">
+                           <div class="row d-flex justify-content-center align-items-center h-100">
+                               <div class="col-md-9 col-lg-6 col-xl-5">
+                                   <img src="{% static 'img/logoClinica/entradaclinica.jpg' %}"
+                                        class="img-fluid" style="border-radius: 10px 100px / 120px;" alt="Sample image">
+                               </div>
+                               <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                                   <form action="" method="post">
+                                       {% csrf_token %}
+                                       <div class="divider d-flex align-items-center my-4">
+                                           <h4>Inicia sesión</h4>
+                                            <hr />
+                                       </div>
+                                       <!-- Email input -->
+                                       <div class="form-outline mb-4">
+                                           <label  class="col-md-4 control-label">Usuario</label>
+                                           <div class="col-md-10">
+                                               <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="username">
+                                           </div>
+                                       </div>
+                                       <!-- Password input -->
+                                       <div class="form-outline mb-3">
+                                         <label  class="col-md-4 control-label">Contraseña</label>
+                                           <div class="col-md-10">
+                                               <input type="password" name="password" autocomplete="current-password" required="" id="password">
+                                           </div>
+                                       </div>
+                                       <div class="text-center text-lg-start mt-4 pt-2">
+                                         <button type="submit" class="btn btn-primary btn-lg"
+                                           style="padding-left: 2.5rem; padding-right: 2.5rem;">Entrar</button>
+                                       </div>
+                                       {% if form.errors %}
+                                           <p class="validation-summary-errors" style="color:red">Ingresa un usuario o contraseña válida.</p>
+                                       {% endif %}
+                                   </form>
+                               </div>
+                           </div>
+                       </div>
+                   </section>
+               </div>
+           </div>
+       </div>
+</div>
+
+
+{% endblock %}
+
+
+{% block scripts %}
+{% endblock %}
