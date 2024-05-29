@@ -1,3 +1,5 @@
+<!--//Desarrollado por Manuel Godoy-->
+
 {% extends 'global/layout.html' %}
 
 {% load static %}
@@ -14,14 +16,14 @@
       <div class="col-md-15">
           <div class="card">
               <div class="col-sm-12" style="background-color: rgb(78, 170, 167); border: 1px solid #333">
-                  <h4 class="card-title text-center mt-0" style="color:white;"> Reset de la Campaña </h4>
+                  <h4 class="card-title text-center mt-0" style="color:white;"> Creación de Campañas </h4>
               </div>
               <form id="formulario_datos" method="post" action="{% url 'reset_campania' %}" enctype="multipart/form-data">
                   {% csrf_token %}
                   <div class="card-body" style="background-color: rgb(78, 170, 167);margin-top:1%; border: 1px solid #333;">
                       <div class="form-group row ">
                           <div class="row align-items-start">
-                              <div class="col-sm-3">
+                              <div class="col-sm-2">
                                   <label  class="form-label fw-bold" style="color:white;" >Nombre Campania</label>
                                   <input name="nombre_campania" id="nombre_campania" class="form-control" type="text" required>
                               </div>
@@ -41,8 +43,14 @@
                                   <label  class="form-label fw-bold" style="color:white;" >Hora Termino..</label>
                                   <input name="hora_termino" id="hora_termino" class="form-control" type="time" required>
                               </div>
-                              <div class="col-sm-15 text-end">
-                                  <button type="submit" id="submit_button" class="btn btn-primary">Guardar</button>
+                              <div class="col-sm-2 mt-4">
+                                  <div class="form-check form-switch">
+                                      <input class="form-check-input" type="checkbox" id="activo" name="activo">
+                                      <label class="form-check-label fw-bold" for="activo" style="color:white;" >Activar Campaña</label>
+                                  </div>
+                              </div>
+                              <div class="col-sm-15 mt-2 text-end">
+                                  <button type="button" id="submit_button" class="btn btn-primary">Guardar</button>
                               </div>
                           </div>
                       </div>
@@ -63,5 +71,5 @@
 
 {% endif %}
 {% endif %}}
-
+<script type="text/javascript" src="{% static 'js/campania/campania.js' %}"></script>
 {% endblock %}

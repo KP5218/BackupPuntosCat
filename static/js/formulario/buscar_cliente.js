@@ -1,3 +1,4 @@
+//Desarrollado por Barbara Vera
    function cargarDatosCliente() {
         var rut = document.getElementById('rut').value;
         var divObservacion = document.getElementById('div_observacion');
@@ -20,7 +21,6 @@
                      existe_derivacion(rut);
                 } else {
                     document.getElementById('nombre').value = data[0].nombre + " " + data[0].appaterno + " " + data[0].apmaterno;
-                    document.getElementById('direccion').value = data[0].direccion;
                     document.getElementById('telefono').value = data[0].fonomovil;
                     document.getElementById('email').value = data[0].email;
 
@@ -39,16 +39,15 @@
 
 function limpiarCamposFormulario() {
    document.getElementById('nombre').value = '';
-   document.getElementById('direccion').value = '';
    document.getElementById('telefono').value = '';
    document.getElementById('email').value = '';
 }
 
-document.getElementById('rut').addEventListener('blur', cargarDatosCliente);
+
 
 
 function existe_derivacion(rut) {
-    let botonguardar = document.getElementById("enviar");
+    var botonguardar = document.getElementById("enviar");
     if (rut) {
         fetch(`/busqueda/${rut}`)
             .then(response => {
@@ -85,3 +84,48 @@ function existe_derivacion(rut) {
             });
     }
 }
+
+function cliente_rechazo() {
+     var rut = document.getElementById('rut').value;
+     var botonguardar = document.getElementById("enviar");
+     if (rut) {
+         fetch(`/cliente_rechazo/${rut}`)
+         .then(response => {
+             if (!response.ok) {
+                 throw new Error('Error en la solicitud');
+             }
+             return response.json();
+         })
+         .then(data => {
+             console.log(data);
+             if (data.length === 0) {
+                botonguardar.disabled = false;
+                cargarDatosCliente();
+                 limpiarCamposFormulario();
+
+             } else {
+                   alert("El cliente ha manifestado su intención de no adquirir el seguro alemana.");
+                   botonguardar.disabled = true;
+             }
+         })
+         .catch(error => {
+             console.error('Error al obtener datos del cliente:', error);
+             limpiarCamposFormulario();
+         });
+     }
+}
+
+document.getElementById('rut').addEventListener('blur', cliente_rechazo);
+
+
+
+function fonoRequired() {
+       var telefonoInput = document.getElementById('telefono');
+       var rechazaSeguroCheckbox = document.getElementById('rechaza_seguro');
+       if (rechazaSeguroCheckbox.checked) {
+           telefonoInput.removeAttribute('required');
+       } else {
+           telefonoInput.setAttribute('required', 'required');
+       }
+}
+document.getElementById('rechaza_seguro').addEventListener('change', fonoRequired);

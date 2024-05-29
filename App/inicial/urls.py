@@ -8,5 +8,6 @@ urlpatterns = [
     path('insertar_derivacion/', views.insertar_derivacion, name="insertar_derivacion"),
     path('base_cliente/<str:rut_cliente>', views.filtrocliente, name="datos_base_cliente"),
     path('busqueda/<str:rut_cliente>', views.busqueda_cliente, name="busqueda"),
+    path('cliente_rechazo/<str:rut_cliente>', views.cliente_rechazo, name="cliente_rechazo"),
 
 ]

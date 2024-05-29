@@ -1,3 +1,4 @@
+<!--//Desarrollado por Manuel Godoy-->
 {% extends 'global/layout.html' %}
 
 {% load static %}
@@ -27,23 +28,23 @@
                             </div>
                             <div class="mb-3">
                                 <label for="nombre" class="form-label fw-bold">Nombre:</label>
-                                <input type="text" class="form-control" id="nombre" name="nombre" maxlength="150" required>
+                                <input type="text" class="form-control" id="nombre" name="nombre" maxlength="150" >
                             </div>
                             <div class="mb-3">
-                                <label for="direccion" class="form-label fw-bold">Direccion:</label>
-                                <input type="text" class="form-control" id="direccion" name="direccion" maxlength="200" required>
+                                <label for="telefono" class="form-label fw-bold">Teléfono:</label>
+                                <input type="text" class="form-control" id="telefono" name="telefono" maxlength="50" required>
                             </div>
                             <div class="mb-3">
-                                <label for="telefono" class="form-label fw-bold">Telefono:</label>
-                                <input type="tel" class="form-control" id="telefono" name="telefono" maxlength="50" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label fw-bold">Correo electronico:</label>
-                                <input type="email" class="form-control" id="email" name="email" maxlength="200" required>
+                                <label for="email" class="form-label fw-bold">Correo electrónico:</label>
+                                <input type="email" class="form-control" id="email" name="email" maxlength="200" >
                             </div>
                             <div class="mb-3" id="div_observacion" style="display:none">
                                 <label for="observacion" class="form-label fw-bold" >Razón derivacion:</label>
                                 <textarea class="form-control" id="observacion" name="observacion"  rows="2" maxlength="160" ></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <input type="checkbox" class="form-check-input" id="rechaza_seguro" name="rechaza_seguro">
+                                <label for="rechaza_seguro" class="form-check-label fw-bold">No desea el seguro alemana</label>
                             </div>
                             {% if fecha_fin  %}
                                 <button type="submit" id="enviar" class="btn btn-primary mb-2" >Enviar</button>
@@ -175,7 +176,6 @@
 
 
 <script type="text/javascript" src="{% static 'js/formulario/validar_rut.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/formulario/solo_numeros.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/formulario/buscar_cliente.js' %}"></script>
 {% endif %}
 {% else %}
@@ -186,7 +186,7 @@
         <img src="{% static 'img/logoclinica/clinica_3.png' %}" style="opacity: 0.8;" class="card-img">
         <div class="card-img-overlay d-flex justify-content-end align-items-end">
           <div class="container">
-            <h1 class="text-white" style="float:right;"><b>Bienvenid@ al Sistema de Derivación Seguros CAT</b></h1>
+            <h1 class="text-white" style="float:right;"><b>Bienvenid@ al Sistema de derivación de pacientes a Seguro Alemana</b></h1>
           </div>
         </div>
       </div>

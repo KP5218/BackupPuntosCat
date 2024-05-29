@@ -1,9 +1,9 @@
 //Desarrollado por Barbara Vera
-   function existerut() {
-        var botonguardar = document.getElementById("enviar");
+   function existerutcorreo() {
+        var botonguardar = document.getElementById("boton-enviar");
         var rut = document.getElementById('rut').value;
         if (rut) {
-            fetch(`/participante/existe_participante/${rut}`)
+            fetch(`/correo/existe_rut/${rut}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Error en la solicitud');
@@ -13,10 +13,10 @@
             .then(data => {
                 console.log(data);
                 if (data.length === 0) {
-                    console.log("No se encontró al cliente");
+                    console.log("No se encontró el correo");
                     botonguardar.disabled = false;
                 } else {
-                        alert('el rut ya existe en la bd');
+                        alert('el rut ya existe en el sistema');
                         botonguardar.disabled = true;
                 }
             })
@@ -25,15 +25,13 @@
             });
         }
     }
-    document.getElementById('rut').addEventListener('blur', existerut);
+    document.getElementById('rut').addEventListener('blur', existerutcorreo);
 
-
-
-       function existeusuario() {
-        var botonguardar = document.getElementById("enviar");
-        var usuario = document.getElementById('usuario').value;
-        if (usuario) {
-            fetch(`/participante/existe_usuario/${usuario}`)
+   function existecorreo() {
+        var botonguardar = document.getElementById("boton-enviar");
+        var correo = document.getElementById('correo').value;
+        if (correo) {
+            fetch(`/correo/existe_correo/${correo}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Error en la solicitud');
@@ -43,10 +41,10 @@
             .then(data => {
                 console.log(data);
                 if (data.length === 0) {
-                    console.log("No se encontró al cliente");
+                    console.log("No se encontró el correo");
                     botonguardar.disabled = false;
                 } else {
-                        alert('el usuario ya existe en la bd');
+                        alert('el correo ya existe en el sistema');
                         botonguardar.disabled = true;
                 }
             })
@@ -55,4 +53,4 @@
             });
         }
     }
-    document.getElementById('usuario').addEventListener('blur', existeusuario);
+        document.getElementById('correo').addEventListener('blur', existecorreo);

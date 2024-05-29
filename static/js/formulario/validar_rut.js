@@ -1,3 +1,4 @@
+//Desarrollado por Barbara Vera
 //---------VALIDADOR DE RUT------------------->
 let alerta = document.getElementById("alerta");
 let mensaje = document.getElementById("mensaje");

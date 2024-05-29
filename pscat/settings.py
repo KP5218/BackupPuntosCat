@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'App.reset_campania',
     'App.crear_participante',
     'App.correo',
-    'App.reporte',
 ]
 
 MIDDLEWARE = [

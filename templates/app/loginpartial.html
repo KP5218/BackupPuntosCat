@@ -3,7 +3,7 @@
 <form id="logoutForm" action="/logout/" method="post" class="navbar-right">
     {% csrf_token %}
     <div class="nav-item dropdown" style="margin-top:2%;">
-        <h5 class="dropdown-toggle text-light" data-toggle="dropdown" data-bs-toggle="dropdown" aria-expanded="false"> <img src="{% static 'img/logoclinica/tarjeta.png' %}" alt="login" width="50" height="50">  {{user.first_name}} {{user.last_name}} </h5>
+        <h5 class="dropdown-toggle text-light" data-toggle="dropdown" data-bs-toggle="dropdown" aria-expanded="false"> <img src="{% static 'img/logoclinica/tarjeta.png' %}" alt="login" width="50" height="50"> {{ user.username }} {{user.first_name}} {{user.last_name}} </h5>
         <div class="dropdown-menu">
             <a href="http://127.0.0.1:8000/admin/" class="dropdown-item"><i class="fa fa-user-o"></i>Administrador</a>
             <a href="{% url 'password_change' %}" class="dropdown-item"><i class="fa fa-user-o"></i>Cambiar contraseña</a>

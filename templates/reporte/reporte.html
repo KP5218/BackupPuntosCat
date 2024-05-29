@@ -1,76 +1,104 @@
 {% extends 'global/layout.html' %}
 {% load static %}
+<!--Carolina Correa -->
 
 {% block content %}
-<div class="container justify-content-center">
-    <div class="row">
-        <div class="col-md-15">
+<div class="container mt-3">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
             <div class="card">
-                <div class="card-body ">
-                    <div class="container mt-4">
-                        <h2 class="p-2">
-                            <span class="ml-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-                                </svg>
-                            </span>
-                            Descarga reporte
-                            <hr>
-                        </h2>
-                        <form id="reportForm" action="{% url 'buscar_resultados' %}" method="post"  onsubmit="return validarFechas()">
+                <div class="card-header" style="background-color: rgb(78, 170, 167);">
+                    <h4 class="card-title text-center mt-0" style="color:white;">Descarga reporte</h4>
+                </div>
+                 {% if messages %}
+                  {% for message in messages %}
+                  <div style="position: fixed;top: 50px; right: 100px; width: 300px; z-index: 9999;"
+                       class="alert {% if message.tags == 'error' %}alert-danger{% else %}alert-success{% endif %} alert-dismissible fade show"
+                       role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+                  {% endfor %}
+                  {% endif %}
+                <div class="card-body" style="background-color: rgb(78, 170, 167); border: 1px solid #333; padding: 20px; margin-top:1%;">
+                     <form id="Formulario" action="{% url 'datos' %}" method="post">
                             {% csrf_token %}
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="container mt-4">
-                                            <table class="table table-bordered" id="tabla">
-                                                <thead class="table-light">
-                                                    <tr>
-                                                        <th colspan="6">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-funnel-fill" viewBox="0 0 16 16">
-                                                                <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5z"/>
-                                                            </svg>
-                                                            Filtros de búsqueda
-                                                        </th>
-                                                    </tr>
-                                                    <tr>
-                                                        <th colspan="2" class="d-flex align-items-center">
-                                                            <select class="form-control border border-2 " id="busqueda" name="busqueda" onchange="mostrarEntradas()" required>
-                                                                <option value="derivacion">Derivaciones</option>
-                                                                <option value="puntaje">Puntaje</option>
-                                                            </select>
-                                                        </th>
-                                                        <div id="error-mensage" style="color: red;"></div>
-                                                    </tr>
+                        <div class="row mb-3">
+                            <div class="col-sm-6">
+                                <label for="eleccion" class="form-label" style="color:white;">Tipo de reporte:</label>
+                                <select class="form-select" id="eleccion" name="eleccion" onchange="mostrarFechas()" required>
+                                    <option value="" selected>Seleccione tipo de reporte</option>
+                                    <option value="campana">Campaña</option>
+                                    <option value="fecha">Fecha</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-6" id="busqueda" style="display:none;">
+                                <label for="busqueda2" class="form-label" style="color:white;">Tipo de búsqueda:</label>
+                                <select class="form-select" id="busqueda2" name="busqueda" onchange="mostrarTipobusqueda()" required>
+                                    <option value="" selected>Seleccione tipo búsqueda</option>
+                                    <option value="campana">Campañas</option>
+                                    <option value="derivacion">Derivaciones</option>
+                                    <option value="puntaje">Puntaje</option>
+                                    <option value="Cliente">Reporte Alemana</option>
+                                </select>
+                            </div>
+                        </div>
 
-                                                    <tr>
-                                                        <th colspan="2">
-                                                            <div class="input-group mb-1" id="busquedafecha">
-                                                                <label for="fechaInicio">Inicio: &nbsp;&nbsp;</label>
-                                                                <input type="date" class="form-control" id="fechaInicio" name="fechaInicio" required>
-                                                                &nbsp;&nbsp;<label for="fechaFin">Fin:&nbsp;&nbsp;&nbsp;&nbsp; </label>
-                                                                <input type="date" class="form-control" id="fechaFin" name="fechaFin" required>
-                                                            </div>
-                                                            <div id="error-message" style="color: red;"></div>
-                                                        </th>
-                                                    </tr>
-                                                </thead>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <div class="text-end">
-                                        <button type="submit" class="btn btn-primary" style="width:20%">Generar reporte</button>
-                                    </div>
+                        <div id="fechas" class="mb-3" style="display:none;">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label for="fechaInicio" class="form-label" style="color:white;">Fecha de inicio:</label>
+                                    <input type="date" class="form-control" id="fechaInicio" name="fechaInicio">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="fechaFin" class="form-label" style="color:white;">Fecha de fin:</label>
+                                    <input type="date" class="form-control" id="fechaFin" name="fechaFin">
                                 </div>
                             </div>
-                        </form>
-                    </div>
+                        </div>
+
+                         <div id="campanaInput" class="mb-3" style="display:none;">
+                             <select name="campana-select" id="campana-select" class="form-select">
+                                 <option value="">Seleccione una campaña</option>
+                             </select>
+                         </div>
+
+                         <div id="detalle-campana" style="display: none;">
+                             <table id="detalle-campana-table" class="table">
+                                 <thead>
+                                 <tr>
+                                     <th>Tipo de Detalle</th>
+                                     <th>Nombre</th>
+                                     <th>Fecha de Inicio</th>
+                                     <th>Fecha de Fin</th>
+                                 </tr>
+                                 </thead>
+                                 <tbody>
+                                 <tr>
+                                     <td>
+                                         <select id="tipo-detalle" name="tipo-detalle" class="form-select">
+                                             <option value="campana">Campañas</option>
+                                             <option value="derivacion">Derivaciones</option>
+                                             <option value="puntaje">Puntaje</option>
+                                         </select>
+                                     </td>
+                                     <td id="detalle-nombre" name="detalle-nombre"></td>
+                                     <td id="detalle-fecha-inicio"></td>
+                                     <td id="detalle-fecha-fin"></td>
+                                 </tr>
+                                 </tbody>
+                             </table>
+                         </div>
+                         <div id="error-message1" style="color: red;"></div>
+                         <div class="button-container text-end">
+                             <button type="submit" name="boton" value="boton2" id="envio2" class="btn btn-primary">Generar reporte</button>
+                         </div>
+                         <input type="hidden" id="nombre-campania" name="nombre-campania">
+                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 <script type="text/javascript" src="{% static 'js/reporte/reporte.js' %}"></script>
-
 {% endblock %}

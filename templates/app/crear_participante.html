@@ -42,15 +42,29 @@
                             <label for="usuario" class="form-label"  style="font-size: 1.2em;color:white">Usuario:</label>
                             <input type="text" class="form-control" id="usuario" name="usuario" maxlength="100" required>
                         </div>
-                        <div class="mb-3">
-                            <label for="n_personal" class="form-label"  style="font-size: 1.2em;color:white">N° de personal:</label>
-                            <input type="text" class="form-control" id="n_personal" name="n_personal" maxlength="100" required>
-                        </div>
+
                         <div class="mb-3">
                             <label for="nombre" class="form-label"  style="font-size: 1.2em;color:white">Nombre ejecutivo:</label>
                             <input type="text" class="form-control" id="nombre" name="nombre" maxlength="150" required>
                         </div>
-
+                        <div class="mb-3" >
+                            <label class="col-md-0 control-label col-form-label" style="font-size: 1.2em;color:white" >Cargo:</label>
+                            <select class="form-select" aria-label="Default select example" id="cargo" name="cargo"  required>
+                                <option selected value="" disabled>Seleccione Cargo </option>
+                                {% for cargo in opciones_cargos %}
+                                <option value="{{cargo.cod_cargo}}">{{cargo.descripcion}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="mb-3" >
+                            <label class="col-md-0 control-label col-form-label"  style="font-size: 1.2em;color:white">Servicio:</label>
+                            <select class="form-select" aria-label="Default select example" id="servicio" name="servicio" required>
+                                <option selected value="" disabled>Seleccione Servicio </option>
+                                {% for servicio in opciones_servicios %}
+                                <option value="{{servicio.cod_servicio}}">{{servicio.descripcion}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
                         <div class="text-center">
                             <button id="enviar" type="submit" class="btn btn-lg btn-primary mt-3">Añadir</button>
                         </div>

@@ -2,7 +2,18 @@ from django.utils import timezone
 
 from django.db import models
 
-# Create your models here.
+class servicios(models.Model):
+    class Meta:
+        db_table = 'servicios'
+    cod_servicio = models.IntegerField(null=True, blank=True, verbose_name="Cod servicio", unique=True)
+    descripcion = models.TextField(null=True, blank=True, max_length=150, verbose_name="descripcion")
+
+class cargos(models.Model):
+    class Meta:
+        db_table = 'cargos'
+    cod_cargo = models.IntegerField(null=True, blank=True, verbose_name="Cod cargo", unique=True)
+    descripcion = models.TextField(null=True, blank=True, max_length=150, verbose_name="descripcion")
+
 class derivacion(models.Model):
     class Meta:
         db_table = 'derivacion'
@@ -10,7 +21,7 @@ class derivacion(models.Model):
     rut = models.CharField(null=True, blank=True, max_length=20, verbose_name="rut")
     nombre = models.TextField(null=True,blank=True, max_length=150,verbose_name="nombre")
     direccion = models.TextField(null=True, blank=True, max_length=200, verbose_name="direccion")
-    telefono = models.IntegerField(null=True, blank=True, verbose_name="telefono")
+    telefono = models.TextField(null=True, blank=True, verbose_name="telefono")
     correo = models.TextField(null=True, blank=True, max_length=200, verbose_name="correo")
     fecha_derivacion = models.DateTimeField(blank=True, null=True, default=timezone.now, verbose_name="Fecha derivacion")
     derivador = models.TextField(null=True,blank=True, max_length=100,verbose_name="ejecutivo")
@@ -23,6 +34,7 @@ class derivacion(models.Model):
     correo_derivacion_nuevo = models.TextField(null=True, blank=True, max_length=200,verbose_name="Correo ejecutivo enviado")
     fecha_anulado = models.DateTimeField(blank=True, null=True, verbose_name="Fecha anulado")
     anulado = models.BooleanField(default=False, verbose_name="anulado")
+    campania = models.ForeignKey('campana', on_delete=models.RESTRICT, null=True, blank=True, verbose_name="id", to_field="id")
 
 class puntaje(models.Model):
     class Meta:
@@ -40,6 +52,9 @@ class puntaje(models.Model):
     fecha_movimiento = models.DateTimeField(blank=True, null=True, default=timezone.now, verbose_name="Fecha movimiento")
     fecha_anulado = models.DateTimeField(blank=True, null=True, verbose_name="Fecha anulado")
     anulado = models.BooleanField(default=False, verbose_name="anulado")
+    campania_id = models.ForeignKey('campana', on_delete=models.RESTRICT, null=True, blank=True, verbose_name="id",to_field="id")
+    cod_servicio = models.ForeignKey(servicios, on_delete=models.RESTRICT, null=True, blank=True, verbose_name="cod servicio",to_field="cod_servicio")
+    cod_cargo = models.ForeignKey(cargos, on_delete=models.RESTRICT, null=True, blank=True,verbose_name="cod cargo", to_field="cod_cargo")
 
 class correo(models.Model):
     class Meta:
@@ -76,3 +91,13 @@ class historial_puntaje(models.Model):
     fecha_inicio_camp = models.DateTimeField(blank=True, null=True, verbose_name="Fecha inicio")
     fecha_termino_camp = models.DateTimeField(blank=True, null=True, verbose_name="Fecha termino")
     puntaje_periodo = models.IntegerField(null=True, blank=True, verbose_name="puntaje periodo")
+    campania = models.ForeignKey('campana', on_delete=models.RESTRICT, null=True, blank=True, verbose_name="id", to_field="id")
+
+class derivacion_rechazada(models.Model):
+    class Meta:
+        db_table = 'derivacion_rechazada'
+    rut = models.CharField(null=True, blank=True, max_length=20, verbose_name="rut")
+    fecha_rechazo = models.DateTimeField(blank=True, null=True, default=timezone.now, verbose_name="Fecha rechazo")
+    ejecutivo = models.TextField(null=True,blank=True, max_length=100,verbose_name="ejecutivo")
+    anulado = models.BooleanField(default=False, verbose_name="anulado")
+
