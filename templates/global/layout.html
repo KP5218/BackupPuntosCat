@@ -14,7 +14,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/form_basic.css' %}">
     <script src="{% static 'js/vendor/jquery/jquery.min.js' %}"></script>
 
-    <div class="container-fluid navegador1" style="background-color: #003366;">
+    <div class="container navegador1" style="background-color: #003366;">
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{% url 'home' %}">
@@ -28,7 +28,7 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarNav" style="margin-left:15%;">
-                    <ul class="navbar-nav d-flex align-items-center"> <!-- Agregar alineación en línea -->
+                    <ul class="navbar-nav">
                         {% load custom_tags %}
                         {% if request.user|has_group:"ejecutivo" or request.user|has_group:"admin" %}
                         <li class="nav-item px-2 py-1">
@@ -57,13 +57,11 @@
                         {% endif %}
                     </ul>
                 </div>
-
-                <!-- Aquí se agrega el bloque del login y se usa 'ms-auto' para moverlo a la derecha -->
-                <div class="d-flex ms-auto">
-                    {% include 'app/loginpartial.html' %}
                 </div>
                 {% endif %}
-            </div>
+                <div>
+                    {% include 'app/loginpartial.html' %}
+                </div>
         </nav>
     </div>
 {% endblock %}
