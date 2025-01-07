@@ -14,54 +14,61 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/form_basic.css' %}">
     <script src="{% static 'js/vendor/jquery/jquery.min.js' %}"></script>
 
-    <div class="container navegador1" style="background-color: #003366;">
+    <div class="container-fluid" style="background-color: #003366;">
         <nav class="navbar navbar-expand-lg navbar-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="{% url 'home' %}">
+            <div class="container-fluid d-flex justify-content-between align-items-center">
+                <!-- Logo y título -->
+                <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}">
                     <img src="{% static 'img/logo/logo.png' %}" alt="Logo" width="60" height="60">
-                    <b class="text-light">SORTEO</b>
+                    <b class="text-light ms-2">SORTEO</b>
                 </a>
 
                 {% if user.is_authenticated %}
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                <!-- Menú de navegación -->
+                <div class="d-flex align-items-center">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
-                <div class="collapse navbar-collapse" id="navbarNav" style="margin-left:15%;">
-                    <ul class="navbar-nav">
-                        {% load custom_tags %}
-                        {% if request.user|has_group:"ejecutivo" or request.user|has_group:"admin" %}
-                        <li class="nav-item px-2 py-1">
-                            <a class="nav-link active text-light fw-bold fs-5" href="/home/">Formulario</a>
-                        </li>
-                        {% endif %}
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            {% load custom_tags %}
+                            {% if request.user|has_group:"ejecutivo" or request.user|has_group:"admin" %}
+                            <li class="nav-item px-2 py-1">
+                                <a class="nav-link active text-light fw-bold fs-5" href="/home/">Formulario</a>
+                            </li>
+                            {% endif %}
 
-                        {% if request.user|has_group:"admin" %}
-                        <li class="nav-item px-2 py-1">
-                            <a class="nav-link active text-light fw-bold fs-5" href="/reset/">Campaña</a>
-                        </li>
-                        <li class="nav-item px-2 py-1">
-                            <a class="nav-link active text-light fw-bold fs-5" href="/reporte/">Reporte</a>
-                        </li>
+                            {% if request.user|has_group:"admin" %}
+                            <li class="nav-item px-2 py-1">
+                                <a class="nav-link active text-light fw-bold fs-5" href="/reset/">Campaña</a>
+                            </li>
+                            <li class="nav-item px-2 py-1">
+                                <a class="nav-link active text-light fw-bold fs-5" href="/reporte/">Reporte</a>
+                            </li>
 
-                        <li class="nav-item dropdown px-2 py-1">
-                            <a class="nav-link dropdown-toggle text-light fw-bold fs-5" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Administrar
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: #00558C; border-color: #00558C;">
-                                <li><a class="dropdown-item fs-6" href="/participante/">Añadir Ejecutivo</a></li>
-                                <li><a class="dropdown-item fs-6" href="/premio/">Añadir Premios</a></li>
-                                <li><a class="dropdown-item fs-6" href="/correo/">Añadir Correo</a></li>
-                            </ul>
-                        </li>
-                        {% endif %}
-                    </ul>
-                </div>
+                            <li class="nav-item dropdown px-2 py-1">
+                                <a class="nav-link dropdown-toggle text-light fw-bold fs-5" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Administrar
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: #00558C; border-color: #00558C;">
+                                    <li><a class="dropdown-item fs-6" href="/participante/">Añadir Ejecutivo</a></li>
+                                    <li><a class="dropdown-item fs-6" href="/premio/">Añadir Premios</a></li>
+                                    <li><a class="dropdown-item fs-6" href="/correo/">Añadir Correo</a></li>
+                                </ul>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </div>
                 </div>
                 {% endif %}
-                <div>
+
+                <!-- Imagen del usuario logeado -->
+                <div class="ms-3">
                     {% include 'app/loginpartial.html' %}
                 </div>
+
+            </div>
         </nav>
     </div>
 {% endblock %}
