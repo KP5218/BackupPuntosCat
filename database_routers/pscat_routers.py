@@ -1,6 +1,3 @@
-#Desarrollado por Manuel Godoy
-#Router encargado de especificar que migraciones de los modelos corresponden
-#a la base de datos pscat
 
 class PsCAT_router:
     router_app_labels = {'auth', 'contenttypes', 'sessions', 'admin', 'derivacion', 'puntaje', 'correo'}
