@@ -14,7 +14,6 @@ from django.utils import timezone
 from App.cliente.models import Basecliente
 from App.inicial.models import derivacion, puntaje, correo
 
-#Creado por Barbara Vera
 # Create your views here.
 
 def home(request):

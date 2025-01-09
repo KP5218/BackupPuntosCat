@@ -1,4 +1,3 @@
-//Desarrollado por Barbara Vera
    function cargarDatosCliente() {
         var rut = document.getElementById('rut').value;
         var divObservacion = document.getElementById('div_observacion');

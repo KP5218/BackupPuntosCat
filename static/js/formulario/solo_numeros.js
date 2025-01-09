@@ -1,4 +1,3 @@
-//Desarrollado por Barbara Vera
 const telefonoInput = document.getElementById('telefono');
 
 telefonoInput.addEventListener('keypress', function(event) {

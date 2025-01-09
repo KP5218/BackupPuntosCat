@@ -1,4 +1,3 @@
-# Desarrollado por Manuel Godoy
 from datetime import datetime
 
 import pytz

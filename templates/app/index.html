@@ -7,10 +7,10 @@
 {% if user.is_authenticated %}
 
 {% if request.user|has_group:"ejecutivo" or request.user|has_group:"admin" %}
-<div class="container justify-content-center mt-1">
+<div class="container justify-content-center mt-1" >
     <div class="container mt-3">
         <div class="row" style="margin-left:3%">
-            <div class="col-md-5" style="background-color: rgb(78, 170, 167); border-radius: 20px">
+            <div class="col-md-5" style="background-color: rgb(191, 227, 225); border-radius: 20px">
                 <div class="card" style="margin-top: 15px;height:95%">
                     <div class="card-body">
                         <h5 class="card-title text-center">Formulario de Derivación</h5>
@@ -43,7 +43,7 @@
                             </div>
                             <div class="mb-3">
                                 <input type="checkbox" class="form-check-input" id="rechaza_seguro" name="rechaza_seguro">
-                                <label for="rechaza_seguro" class="form-check-label fw-bold">No desea el seguro alemana</label>
+                                <label for="rechaza_seguro" class="form-check-label fw-bold">No desea participar</label>
                             </div>
                             {% if fecha_fin  %}
                                 <button type="submit" id="enviar" class="btn btn-primary mb-2" >Enviar</button>
@@ -63,7 +63,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4" style="background-color: rgb(78, 170, 167); border-radius: 20px; margin-left:1%" >
+            <div class="col-md-4" style="background-color: rgb(191, 227, 225); border-radius: 20px; margin-left:1%" >
                 <div class="card text-center" style="margin-top: 15px;margin-bottom: 15px;">
                     <div class="card-body">
                         <h5 class="card-title text-center">Ranking</h5>
@@ -110,7 +110,7 @@
                     </div>
                 </div>
             </div>
-            <div  class="col-md-2 mb-1" style="background-color: rgb(78, 170, 167); border-radius: 20px; margin-left:1%;margin-bottom: 23%;" >
+            <div  class="col-md-2 mb-1" style="background-color: rgb(191, 227, 225); border-radius: 20px; margin-left:1%;margin-bottom: 23%;" >
                 <div class="card text-center" style="margin-top: 15px;margin-bottom: 15px;">
                     <div class="card-body">
                         <div>
@@ -178,14 +178,14 @@
 <script type="text/javascript" src="{% static 'js/formulario/buscar_cliente.js' %}"></script>
 {% endif %}
 {% else %}
-<div class="container justify-content-center mt-1">
+<div class="container justify-content-center mt-1" >
   <div class="row">
     <div class="col-md-12">
       <div class="card text-bg-dark">
         <img src="{% static 'img/logo/ventana1.jpg' %}" style="opacity: 0.8;" class="card-img">
         <div class="card-img-overlay d-flex justify-content-center align-items-start">
           <div class="container">
-            <h1 class="text-white" style="text-align: center;  margin: 0 auto;"><b>Bienvenido al Sistema de derivación </b></h1>
+            <h1 class="text-white" style="text-align: center;  margin: 0 auto;"><b>Sistema de Gestión y Reconocimiento </b></h1>
           </div>
         </div>
       </div>

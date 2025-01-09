@@ -1,15 +1,15 @@
 {% extends "global/layout.html" %}{% load static %}{% block content %}
-<div class="container justify-content-center mt-1">
-    <div class="row">
-        <div class="col-md-15">
-            <div class="card shadow-sm border-0 rounded-lg" style="border: 2px solid #007bff;">
+<div class="bg-light" style="background-color: #f8f9fa; height: 100vh;">
+    <div class=" bg-light min-vh-100row">
+        <div class=" col-md-15">
+            <div class=" bg-light min-vh-100 card shadow-sm border-0 rounded-lg" style="border: 2px solid #007bff;">
                 <section class="vh-800 mb-5" id="loginForm">
                     <div class="container-fluid h-custom">
                         <div class="row d-flex justify-content-center align-items-center h-100">
                             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1" style="margin-top:5%;">
-                                <form action="" method="post" class="p-4" style="border: 2px solid #007bff; border-radius: 10px;">
+                                <form action="" method="post" class="p-4" style="border: 2px solid #007bff; border-radius: 10px; background-color: #fff">
                                     {% csrf_token %}
-                                    <div class="divider d-flex align-items-center my-4">
+                                    <div class="divider d-flex justify-content-center align-items-center my-4">
                                         <h4 class="text-primary font-weight-bold">Inicia sesión</h4>
                                         <hr />
                                     </div>

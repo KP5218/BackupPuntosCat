@@ -1,4 +1,3 @@
-#Desarrollado por Manuel Godoy
 #Router encargado de especificar que migraciones de los modelos corresponden
 #a la base de datos presuweb
 
