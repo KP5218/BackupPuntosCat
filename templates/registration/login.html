@@ -1,40 +1,28 @@
-{% extends "global/layout.html" %}{% load static %}{% block content %}
-<div class="bg-light" style="background-color: #f8f9fa; height: 100vh;">
-    <div class=" bg-light min-vh-100row">
-        <div class=" col-md-15">
-            <div class=" bg-light min-vh-100 card shadow-sm border-0 rounded-lg" style="border: 2px solid #007bff;">
-                <section class="vh-800 mb-5" id="loginForm">
-                    <div class="container-fluid h-custom">
-                        <div class="row d-flex justify-content-center align-items-center h-100">
-                            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1" style="margin-top:5%;">
-                                <form action="" method="post" class="p-4" style="border: 2px solid #007bff; border-radius: 10px; background-color: #fff">
-                                    {% csrf_token %}
-                                    <div class="divider d-flex justify-content-center align-items-center my-4">
-                                        <h4 class="text-primary font-weight-bold">Inicia sesión</h4>
-                                        <hr />
-                                    </div>
-                                    <div class="form-outline mb-4">
-                                        <label class="col-md-4 control-label" for="username" style="font-weight: bold;">Usuario</label>
-                                        <input type="text" name="username" id="username" class="form-control form-control-lg" placeholder="Ingresa tu usuario" autofocus autocomplete="username" maxlength="150" required style="border: 2px solid #007bff; border-radius: 10px;">
-                                    </div>
-                                    <div class="form-outline mb-4">
-                                        <label class="col-md-4 control-label" for="password" style="font-weight: bold;">Contraseña</label>
-                                        <input type="password" name="password" id="password" class="form-control form-control-lg" placeholder="Ingresa tu contraseña" autocomplete="current-password" required style="border: 2px solid #007bff; border-radius: 10px;">
-                                    </div>
-                                    <div class="text-center text-lg-start mt-4 pt-2">
-                                        <button type="submit" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem; border-radius: 50px;">Entrar</button>
-                                    </div>
-                                    {% if form.errors %}
-                                        <p class="validation-summary-errors" style="color:red; text-align: center; margin-top: 10px;">Ingresa un usuario o contraseña válida.</p>
-                                    {% endif %}
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </div>
-    </div>
+{% extends "global/layout.html" %}
+{% load static %}
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 70vh; padding-top: 0; padding-bottom: 0;">
+  <div class="card shadow-sm border-0 rounded-lg" style="border: 2px solid #007bff; width: 100%; max-width: 400px; padding: 20px;">
+    <form action="" method="post" class="p-5" style="border: 2px solid #007bff; border-radius: 10px; background-color: #fff; width: 100%; padding: 40px;">
+      {% csrf_token %}
+      <div class="text-center mb-4">
+        <h4 class="text-primary font-weight-bold">Inicia sesión</h4>
+      </div>
+      <div class="form-outline mb-4">
+        <input type="text" name="username" id="username" class="form-control form-control-lg" placeholder="Ingresa tu usuario" autofocus autocomplete="username" maxlength="150" required style="border: 1px solid #007bff; border-radius: 5px; padding: 10px;">
+      </div>
+      <div class="form-outline mb-4">
+        <input type="password" name="password" id="password" class="form-control form-control-lg" placeholder="Ingresa tu contraseña" autocomplete="current-password" required style="border: 1px solid #007bff; border-radius: 5px; padding: 10px;">
+      </div>
+      <div class="text-center mt-4">
+        <button type="submit" class="btn btn-primary btn-lg" style="padding: 10px 30px; border-radius: 30px;">Entrar</button>
+      </div>
+      {% if form.errors %}
+        <p class="validation-summary-errors text-center text-danger mt-3" style="font-size: 0.9rem;">Ingresa un usuario o contraseña válida.</p>
+      {% endif %}
+    </form>
+  </div>
 </div>
+
 {% endblock %}
 {% block scripts %}{% endblock %}

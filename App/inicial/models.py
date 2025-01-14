@@ -63,6 +63,7 @@ class correo(models.Model):
     nombre = models.TextField(blank=True, null=True, max_length=200, verbose_name="Nombre")
     correo = models.CharField(max_length=150, blank=False, null=False, verbose_name="Correo")
     valido = models.BooleanField(default=True, verbose_name="valido")
+    actual = models.BooleanField(default=False, verbose_name="actual")
 
 
 class premios(models.Model):
@@ -83,6 +84,8 @@ class campana(models.Model):
     fecha_inicio = models.DateTimeField(blank=True, null=True, verbose_name="f_inicio")
     fecha_final = models.DateTimeField(blank=True, null=True, verbose_name="f_final")
     activo = models.BooleanField(default=True, blank=True, null=True, verbose_name="activo")
+    sorteado = models.BooleanField(default=False, blank=True, null=True, verbose_name="sorteado")
+    valida = models.BooleanField(default=True, verbose_name="valida")
 
 class historial_puntaje(models.Model):
     class Meta:
@@ -100,4 +103,3 @@ class derivacion_rechazada(models.Model):
     fecha_rechazo = models.DateTimeField(blank=True, null=True, default=timezone.now, verbose_name="Fecha rechazo")
     ejecutivo = models.TextField(null=True,blank=True, max_length=100,verbose_name="ejecutivo")
     anulado = models.BooleanField(default=False, verbose_name="anulado")
-

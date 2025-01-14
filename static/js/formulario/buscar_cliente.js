@@ -103,7 +103,7 @@ function cliente_rechazo() {
                  limpiarCamposFormulario();
 
              } else {
-                   alert("El cliente ha manifestado su intención de no adquirir el seguro alemana.");
+                   alert("El cliente ha manifestado su intención de no adquirir el seguro.");
                    botonguardar.disabled = true;
              }
          })

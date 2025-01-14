@@ -2,102 +2,112 @@
 {% load static %}
 
 {% block content %}
-<div class="container mt-3">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header" style="background-color: rgb(78, 170, 167);">
-                    <h4 class="card-title text-center mt-0" style="color:white;">Descarga reporte</h4>
-                </div>
-                 {% if messages %}
-                  {% for message in messages %}
-                  <div style="position: fixed;top: 50px; right: 100px; width: 300px; z-index: 9999;"
-                       class="alert {% if message.tags == 'error' %}alert-danger{% else %}alert-success{% endif %} alert-dismissible fade show"
-                       role="alert">
-                    {{ message }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                  </div>
-                  {% endfor %}
-                  {% endif %}
-                <div class="card-body" style="background-color: rgb(78, 170, 167); border: 1px solid #333; padding: 20px; margin-top:1%;">
-                     <form id="Formulario" action="{% url 'datos' %}" method="post">
-                            {% csrf_token %}
-                        <div class="row mb-3">
-                            <div class="col-sm-6">
-                                <label for="eleccion" class="form-label" style="color:white;">Tipo de reporte:</label>
-                                <select class="form-select" id="eleccion" name="eleccion" onchange="mostrarFechas()" required>
-                                    <option value="" selected>Seleccione tipo de reporte</option>
-                                    <option value="campana">Campaña</option>
-                                    <option value="fecha">Fecha</option>
-                                </select>
-                            </div>
-                            <div class="col-sm-6" id="busqueda" style="display:none;">
-                                <label for="busqueda2" class="form-label" style="color:white;">Tipo de búsqueda:</label>
-                                <select class="form-select" id="busqueda2" name="busqueda" onchange="mostrarTipobusqueda()" required>
-                                    <option value="" selected>Seleccione tipo búsqueda</option>
-                                    <option value="campana">Campañas</option>
-                                    <option value="derivacion">Derivaciones</option>
-                                    <option value="puntaje">Puntaje</option>
-                                    <option value="Cliente">Reporte Alemana</option>
-                                </select>
-                            </div>
+<div class="container-fluid px-3 mt-5">
+    <div class="card shadow-lg border-0 w-100">
+        <div class="card-body p-5 p-md-6 p-lg-7" style="min-height: 540px;">
+            <!-- Título con margen inferior adicional -->
+            <h4 class="card-title text-center mb-5" style="font-family: 'Arial', sans-serif; font-size: 28px; color: #4E4E4E; font-weight: bold; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);">
+                <i class="fas fa-file-alt" style="font-size: 30px; margin-right: 10px;"></i>
+                Generación de Reporte
+            </h4>
+
+            {% if messages %}
+                <div class="alert-container mb-4">
+                    {% for message in messages %}
+                        <div class="alert {% if message.tags == 'error' %}alert-danger{% else %}alert-success{% endif %} alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
-
-                        <div id="fechas" class="mb-3" style="display:none;">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <label for="fechaInicio" class="form-label" style="color:white;">Fecha de inicio:</label>
-                                    <input type="date" class="form-control" id="fechaInicio" name="fechaInicio">
-                                </div>
-                                <div class="col-sm-6">
-                                    <label for="fechaFin" class="form-label" style="color:white;">Fecha de fin:</label>
-                                    <input type="date" class="form-control" id="fechaFin" name="fechaFin">
-                                </div>
-                            </div>
-                        </div>
-
-                         <div id="campanaInput" class="mb-3" style="display:none;">
-                             <select name="campana-select" id="campana-select" class="form-select">
-                                 <option value="">Seleccione una campaña</option>
-                             </select>
-                         </div>
-
-                         <div id="detalle-campana" style="display: none;">
-                             <table id="detalle-campana-table" class="table">
-                                 <thead>
-                                 <tr>
-                                     <th>Tipo de Detalle</th>
-                                     <th>Nombre</th>
-                                     <th>Fecha de Inicio</th>
-                                     <th>Fecha de Fin</th>
-                                 </tr>
-                                 </thead>
-                                 <tbody>
-                                 <tr>
-                                     <td>
-                                         <select id="tipo-detalle" name="tipo-detalle" class="form-select">
-                                             <option value="campana">Campañas</option>
-                                             <option value="derivacion">Derivaciones</option>
-                                             <option value="puntaje">Puntaje</option>
-                                         </select>
-                                     </td>
-                                     <td id="detalle-nombre" name="detalle-nombre"></td>
-                                     <td id="detalle-fecha-inicio"></td>
-                                     <td id="detalle-fecha-fin"></td>
-                                 </tr>
-                                 </tbody>
-                             </table>
-                         </div>
-                         <div id="error-message1" style="color: red;"></div>
-                         <div class="button-container text-end">
-                             <button type="submit" name="boton" value="boton2" id="envio2" class="btn btn-primary">Generar reporte</button>
-                         </div>
-                         <input type="hidden" id="nombre-campania" name="nombre-campania">
-                     </form>
+                    {% endfor %}
                 </div>
-            </div>
+            {% endif %}
+
+            <!-- Formulario con clases de Bootstrap -->
+            <form id="Formulario" action="{% url 'datos' %}" method="post">
+                {% csrf_token %}
+
+                <div class="row justify-content-center">
+                    <div class="col-md-6 mb-4">
+                        <label for="eleccion" class="form-label">Selecciona tipo de reporte:</label>
+                        <select class="form-select form-select-sm" id="eleccion" name="eleccion" onchange="mostrarFechas()" required style="height: 50px;">
+                            <option value="" selected>Elige tipo de reporte</option>
+                            <option value="campana">Campaña</option>
+                            <option value="fecha">Fecha</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center" id="busqueda" style="display:none;">
+                    <div class="col-md-6 mb-4">
+                        <label for="busqueda2" class="form-label">Selecciona tipo de búsqueda:</label>
+                        <select class="form-select form-select-sm" id="busqueda2" name="busqueda" onchange="mostrarTipobusqueda()" required style="height: 50px;">
+                            <option value="" selected>Elige tipo de búsqueda</option>
+                            <option value="campana">Campañas</option>
+                            <option value="derivacion">Derivaciones</option>
+                            <option value="puntaje">Puntaje</option>
+                            <option value="Cliente">Reporte cliente</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="fechas" class="row justify-content-center" style="display:none;">
+                    <div class="col-md-4 mb-4">
+                        <label for="fechaInicio" class="form-label">Fecha de inicio:</label>
+                        <input type="date" class="form-control form-control-sm" id="fechaInicio" name="fechaInicio" style="height: 50px;">
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <label for="fechaFin" class="form-label">Fecha de fin:</label>
+                        <input type="date" class="form-control form-control-sm" id="fechaFin" name="fechaFin" style="height: 50px;">
+                    </div>
+                </div>
+
+                <div class="row justify-content-center" id="campanaInput" style="display:none;">
+                    <div class="col-md-6 mb-4">
+                        <label for="campana-select" class="form-label">Selecciona una campaña:</label>
+                        <select name="campana-select" id="campana-select" class="form-select form-select-sm" style="height: 50px;">
+                            <option value="">Selecciona una campaña</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="detalle-campana" class="mb-4" style="display: none;">
+                    <table id="detalle-campana-table" class="table table-bordered table-striped">
+                        <thead class="table-secondary">
+                            <tr>
+                                <th>Tipo de Detalle</th>
+                                <th>Nombre</th>
+                                <th>Fecha de Inicio</th>
+                                <th>Fecha de Fin</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <select id="tipo-detalle" name="tipo-detalle" class="form-select form-select-sm" style="height: 40px;">
+                                        <option value="campana">Campañas</option>
+                                        <option value="derivacion">Derivaciones</option>
+                                        <option value="puntaje">Puntaje</option>
+                                    </select>
+                                </td>
+                                <td id="detalle-nombre" name="detalle-nombre"></td>
+                                <td id="detalle-fecha-inicio"></td>
+                                <td id="detalle-fecha-fin"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Botón de envío con margen superior -->
+                <div class="text-center mt-4">
+                    <button type="submit" name="boton" value="boton2" id="envio2" class="btn btn-primary btn-lg shadow-none w-auto">Generar Reporte</button>
+                </div>
+
+                <!-- Campo oculto para el nombre de la campaña -->
+                <input type="hidden" id="nombre-campania" name="nombre-campania">
+            </form>
         </div>
     </div>
 </div>
+
 <script type="text/javascript" src="{% static 'js/reporte/reporte.js' %}"></script>
 {% endblock %}

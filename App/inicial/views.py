@@ -13,7 +13,8 @@ from django.contrib import messages
 from django.utils import timezone
 from App.cliente.models import Basecliente
 from App.inicial.models import derivacion, puntaje, correo
-
+from django.core.mail import send_mail
+from django.conf import settings
 # Create your views here.
 
 def home(request):
@@ -365,7 +366,7 @@ def insertar_derivacion(request):
             checkbox = request.POST.get("rechaza_seguro")
             if checkbox:
                 rechazo_seguro = deriv_rechazada(request)
-                messages.success(request, 'El cliente ha rechazado el seguro alemana.')
+                messages.success(request, 'El cliente ha rechazado el seguro.')
                 return redirect('home')
             else:
                 rut = request.POST.get('rut')
@@ -468,50 +469,31 @@ def obtener_correo_aleatorio():
     else:
         print("No hay correos válidos en la base de datos.")
 
-def envio_correo_individual(correo_destino,nombre_destino,nombre_cliente,rut_cliente,email,telefono):
-    # Configuración del servidor SMTP
-    smtp_server = "smtp.itdchile.cl"
-    smtp_port = 46500
-    smtp_username = 'jruizt'
-    smtp_password = 'Kic1905$'
-
-    # Creación de un objeto mensaje
-    mensaje = MIMEMultipart()
-    mensaje["From"] = 'clinica@alemanatemuco.cl'
-    mensaje["To"] = correo_destino
-    mensaje["Subject"] = f"Correo derivacion CAT- {telefono}- {nombre_cliente} "
-
-    # Creación del cuerpo del mensaje en formato HTML
-    saludo = f"Estimado/a {nombre_destino},<br>"  # Puedes ajustar el saludo según el género del destinatario
+def envio_correo_individual(correo_destino, nombre_destino, nombre_cliente, rut_cliente, email, telefono):
+    asunto = f"Correo derivacion - {telefono}- {nombre_cliente}"
 
     contenido_mensaje = (
-        f"{saludo}"
-        "&nbsp;&nbsp;&nbsp;&nbsp; A continuación, le proporciono los datos del cliente para seguro alemana:<br><br>"
+        f"Estimado/a {nombre_destino},<br>"
+        "&nbsp;&nbsp;&nbsp;&nbsp; A continuación, le proporciono los datos del cliente para seguro:<br><br>"
         f"&nbsp;&nbsp;&nbsp;&nbsp;<b>Rut:</b> {rut_cliente}<br>"
         f"&nbsp;&nbsp;&nbsp;&nbsp;<b>Nombre:</b> {nombre_cliente}<br>"
         f"&nbsp;&nbsp;&nbsp;&nbsp;<b>telefono:</b> {telefono}<br>"
         f"&nbsp;&nbsp;&nbsp;&nbsp;<b>correo:</b> {email}<br><br>"
         "&nbsp;&nbsp;&nbsp;&nbsp;Atentamente,<br>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clinica Alemana Temuco"
+        "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Carolina Correa"
     )
-
-    # Adjuntando texto al correo electrónico como HTML
-    mensaje.attach(MIMEText(contenido_mensaje, "html"))
-
     try:
-        # Intento de conexión al servidor SMTP y envío del correo electrónico
-        with smtplib.SMTP(smtp_server, smtp_port) as servidor_smtp:
-            servidor_smtp.login(smtp_username, smtp_password)
-            servidor_smtp.sendmail(mensaje["From"], mensaje["To"], mensaje.as_string())
-
-            # Si el correo se envía correctamente, muestra un mensaje de éxito
-            print("Correo enviado correctamente.")
-
+        send_mail(
+            asunto,
+            contenido_mensaje,
+            settings.DEFAULT_FROM_EMAIL,
+            [correo_destino],
+            html_message=contenido_mensaje
+        )
+        print("Correo enviado correctamente.")
     except Exception as e:
-        # Si ocurre un error durante el envío del correo, muestra un mensaje de error
         print(f"Error al enviar el correo electrónico: {e}")
 
-    # Devuelve True para indicar el estado del envío del correo electrónico
     return True
 
 def filtrocliente(request, rut_cliente):

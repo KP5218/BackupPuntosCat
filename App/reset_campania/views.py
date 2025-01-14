@@ -1,3 +1,4 @@
+
 from datetime import datetime
 
 import pytz
@@ -108,6 +109,8 @@ def reset_campania(request):
             hora_inicio = request.POST.get("hora_inicio")
             hora_termino = request.POST.get("hora_termino")
             activo = request.POST.get("activo")
+
+            print(hora_inicio)
 
             # Combinar fecha y hora en objetos datetime "naive"
             fecha_inicio_completa = datetime.strptime(f"{fecha_inicio} {hora_inicio}", "%Y-%m-%d %H:%M")

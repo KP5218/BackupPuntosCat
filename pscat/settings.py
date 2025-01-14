@@ -15,6 +15,9 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL = 'correa.kro@gmail.com'
+# Internationalization
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -81,16 +84,16 @@ WSGI_APPLICATION = 'pscat.wsgi.application'
 DATABASES = {'default': {
                 'ENGINE': 'django.db.backends.postgresql_psycopg2',
                 'NAME': 'pscat',
-                'USER': 'postgres',
-                'PASSWORD': '050218',
+                'USER': 'user',
+                'PASSWORD': '123456',
                 'HOST': 'localhost',
                 'PORT': '5432'
             },
             'clientes_presupuesto':{
                 'ENGINE': 'django.db.backends.postgresql_psycopg2',
                 'NAME': 'presuweb',
-                'USER': 'postgres',
-                'PASSWORD': '050218',
+                'USER': 'user',
+                'PASSWORD': '123456',
                 'HOST': 'localhost',
                 'PORT': '5432'
                 }
@@ -121,7 +124,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
 LANGUAGE_CODE = 'es'
