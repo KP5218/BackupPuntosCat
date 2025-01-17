@@ -177,20 +177,22 @@
 <script type="text/javascript" src="{% static 'js/formulario/buscar_cliente.js' %}"></script>
 {% endif %}
 {% else %}
-<div class="container justify-content-center mt-1">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="card text-bg-dark">
-        <img src="{% static 'img/logo/inicio.jpg' %}" style="opacity: 0.8;" class="card-img">
-        <div class="card-img-overlay d-flex justify-content-center align-items-start">
-          <div class="container">
-            <h1 class="text-white" style="text-align: center;  margin: 0 auto;"><b>Sistema de Gestión y Reconocimiento </b></h1>
+<div class="container-fluid p-2">
+  <div class="row m-0">
+    <div class="col-12 px-3">
+      <div class="card text-bg-dark border-0">
+        <img src="{% static 'img/logo/inicio.jpg' %}" style="height: 80vh; object-fit: cover;" class="card-img">
+        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+          <div class="text-center">
+            <h1 class="text-white"><b>Sistema de Gestión y Reconocimiento</b></h1>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
 
 {% endif %}
 
