@@ -5,25 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22b3b616-8889-40c6-9024-a2c8bfac2bc8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/Django-4.2.11.dist-info/AUTHORS" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/Django-4.2.11.dist-info/INSTALLER" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/Django-4.2.11.dist-info/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/Django-4.2.11.dist-info/LICENSE.python" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/Django-4.2.11.dist-info/METADATA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/Django-4.2.11.dist-info/RECORD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/Django-4.2.11.dist-info/REQUESTED" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/Django-4.2.11.dist-info/WHEEL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/Django-4.2.11.dist-info/entry_points.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/Django-4.2.11.dist-info/top_level.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/asgiref-3.7.2.dist-info/INSTALLER" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/asgiref-3.7.2.dist-info/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/asgiref-3.7.2.dist-info/METADATA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/asgiref-3.7.2.dist-info/RECORD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/asgiref-3.7.2.dist-info/REQUESTED" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/asgiref-3.7.2.dist-info/WHEEL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/asgiref-3.7.2.dist-info/top_level.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/Django-4.2.13.dist-info/AUTHORS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/Django-4.2.13.dist-info/INSTALLER" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/Django-4.2.13.dist-info/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/Django-4.2.13.dist-info/LICENSE.python" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/Django-4.2.13.dist-info/METADATA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/Django-4.2.13.dist-info/RECORD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/Django-4.2.13.dist-info/REQUESTED" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/Django-4.2.13.dist-info/WHEEL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/Django-4.2.13.dist-info/entry_points.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/Django-4.2.13.dist-info/top_level.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/asgiref-3.8.1.dist-info/INSTALLER" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/asgiref-3.8.1.dist-info/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/asgiref-3.8.1.dist-info/METADATA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/asgiref-3.8.1.dist-info/RECORD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/asgiref-3.8.1.dist-info/REQUESTED" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/asgiref-3.8.1.dist-info/WHEEL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/asgiref-3.8.1.dist-info/top_level.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/asgiref/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/asgiref/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/asgiref/current_thread_executor.py" beforeDir="false" afterPath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/asgiref/current_thread_executor.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/asgiref/local.py" beforeDir="false" afterPath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/asgiref/local.py" afterDir="false" />
@@ -33,13 +32,14 @@
       <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/asgiref/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/asgiref/wsgi.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/django/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/django/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/django/core/mail/message.py" beforeDir="false" afterPath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/django/core/mail/message.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/sqlparse-0.4.4.dist-info/INSTALLER" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/sqlparse-0.4.4.dist-info/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/sqlparse-0.4.4.dist-info/METADATA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/sqlparse-0.4.4.dist-info/RECORD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/sqlparse-0.4.4.dist-info/REQUESTED" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/sqlparse-0.4.4.dist-info/WHEEL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/sqlparse-0.4.4.dist-info/entry_points.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/sqlparse-0.5.0.dist-info/INSTALLER" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/sqlparse-0.5.0.dist-info/METADATA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/sqlparse-0.5.0.dist-info/RECORD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/sqlparse-0.5.0.dist-info/REQUESTED" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/sqlparse-0.5.0.dist-info/WHEEL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/sqlparse-0.5.0.dist-info/entry_points.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/sqlparse-0.5.0.dist-info/licenses/AUTHORS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/sqlparse-0.5.0.dist-info/licenses/LICENSE" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/sqlparse/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/sqlparse/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/sqlparse/engine/filter_stack.py" beforeDir="false" afterPath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/sqlparse/engine/filter_stack.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/sqlparse/engine/grouping.py" beforeDir="false" afterPath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/sqlparse/engine/grouping.py" afterDir="false" />
@@ -51,15 +51,13 @@
       <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/sqlparse/sql.py" beforeDir="false" afterPath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/sqlparse/sql.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/sqlparse/tokens.py" beforeDir="false" afterPath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/sqlparse/tokens.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/sqlparse/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/sqlparse/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/typing_extensions-4.10.0.dist-info/INSTALLER" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/typing_extensions-4.10.0.dist-info/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/typing_extensions-4.10.0.dist-info/METADATA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/typing_extensions-4.10.0.dist-info/RECORD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/typing_extensions-4.10.0.dist-info/REQUESTED" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/typing_extensions-4.10.0.dist-info/WHEEL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/typing_extensions-4.11.0.dist-info/INSTALLER" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/typing_extensions-4.11.0.dist-info/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/typing_extensions-4.11.0.dist-info/METADATA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/typing_extensions-4.11.0.dist-info/RECORD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/typing_extensions-4.11.0.dist-info/REQUESTED" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/typing_extensions-4.11.0.dist-info/WHEEL" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/typing_extensions.py" beforeDir="false" afterPath="$PROJECT_DIR$/.venv/lib/python3.12/site-packages/typing_extensions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/app/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/global/inferior.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/global/inferior.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
