@@ -3,18 +3,27 @@
 <form id="logoutForm" action="/logout/" method="post" class="navbar-right">
     {% csrf_token %}
     <div class="nav-item dropdown" style="margin-top:2%;">
-        <h5 class="dropdown-toggle text-light" data-toggle="dropdown" data-bs-toggle="dropdown" aria-expanded="false"> <img src="{% static 'img/logoclinica/tarjeta.png' %}" alt="login" width="50" height="50"> {{ user.username }} {{user.first_name}} {{user.last_name}} </h5>
-        <div class="dropdown-menu">
-            <a href="http://127.0.0.1:8000/admin/" class="dropdown-item"><i class="fa fa-user-o"></i>Administrador</a>
-            <a href="{% url 'password_change' %}" class="dropdown-item"><i class="fa fa-user-o"></i>Cambiar contraseña</a>
-            <div class="divider dropdown-divider"></div>
-            <a href="{% url 'exit' %}" class="dropdown-item"><img src="{% static 'img/logoclinica/desconectar.png' %}" width="20" height="20"> Cerrar Sesión</a>
+        <h5 class="dropdown-toggle text-light" data-toggle="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="{% static 'img/logo/login.png' %}" alt="login" width="25" height="25">
+            {{ user.username }} {{user.first_name}} {{user.last_name}}
+        </h5>
+        <div class="dropdown-menu dropdown-menu-end">
+            <a href="http://127.0.0.1:8000/admin/" class="dropdown-item">
+                <i class="fa fa-user-o"></i> Administrador
+            </a>
+            <a href="{% url 'password_change' %}" class="dropdown-item">
+                <i class="fa fa-user-o"></i> Cambiar contraseña
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="{% url 'exit' %}" class="dropdown-item">
+                <img src="{% static 'img/logo/desconectar.png' %}" width="20" height="20"> Cerrar Sesión
+            </a>
         </div>
     </div>
 </form>
 {% else %}
-
 <a style="margin-top:1%;" href="{% url 'login' %}">
-    <img src="{% static 'img/logoclinica/tarjeta.png' %}" alt="login" width="40" height="40"><b class="text-light">&nbsp; Iniciar Sesión</b>
+    <img src="{% static 'img/logo/iniciar-sesion (2).png' %}" alt="login" width="30" height="30">
+    <b class="text-light">&nbsp; Iniciar Sesión</b>
 </a>
 {% endif %}

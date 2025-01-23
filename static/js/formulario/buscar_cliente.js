@@ -1,4 +1,3 @@
-//Desarrollado por Barbara Vera
    function cargarDatosCliente() {
         var rut = document.getElementById('rut').value;
         var divObservacion = document.getElementById('div_observacion');
@@ -104,7 +103,7 @@ function cliente_rechazo() {
                  limpiarCamposFormulario();
 
              } else {
-                   alert("El cliente ha manifestado su intención de no adquirir el seguro alemana.");
+                   alert("El cliente ha manifestado su intención de no adquirir el seguro.");
                    botonguardar.disabled = true;
              }
          })

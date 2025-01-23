@@ -1,4 +1,3 @@
-#Desarrollado por Carolina Correa
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.http import HttpRequest, HttpResponse, JsonResponse
@@ -7,7 +6,7 @@ from App.inicial.models import correo
 from django.views.decorators.csrf import csrf_exempt
 
 @login_required
-def index(request):
+def index_correo(request):
     assert isinstance(request, HttpRequest)
 
     return render(request, 'correo/correo.html')
@@ -26,7 +25,8 @@ def guardar_correo(request):
             nombre=nombre,
             rut=rut,
             correo=correo_direccion,
-            valido=True
+            valido=True,
+            actual = True
         )
         # Guarda el nuevo correo en la base de datos
         nuevo_correo.save()
@@ -36,7 +36,7 @@ def guardar_correo(request):
         # Si la petición no es de tipo POST, añade un mensaje de error
         messages.error(request, 'Método no permitido')
     # Redirecciona al usuario de vuelta a la página de inicio (suponiendo que 'index' es la URL de la página de inicio)
-    return redirect('index')
+    return redirect('index_correo')
 
 # Filtro utilizados para hacer busqueda en ajax,con javascript
 def busqueda_rut(request,rut):

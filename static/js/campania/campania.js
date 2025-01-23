@@ -1,4 +1,3 @@
-//Desarrollado por Manuel Godoy
 // variables
 nombre_campania = document.getElementById("nombre_campania");
 fecha_inicio = document.getElementById("fecha_inicio");

@@ -1,4 +1,3 @@
-#Desarrollado por Manuel Godoy
 from django.urls import path
 from App.reset_campania import views
 

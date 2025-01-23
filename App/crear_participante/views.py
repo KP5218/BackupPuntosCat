@@ -1,4 +1,3 @@
-#Desarrolado por Barbara Vera
 from datetime import date
 from django.contrib import messages
 from django.http import JsonResponse

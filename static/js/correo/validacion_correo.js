@@ -1,5 +1,4 @@
-//Desarrollado por Barbara Vera
-   function existerutcorreo() {
+function existerutcorreo() {
         var botonguardar = document.getElementById("boton-enviar");
         var rut = document.getElementById('rut').value;
         if (rut) {
